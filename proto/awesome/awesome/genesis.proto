@@ -1,0 +1,17 @@
+syntax = "proto3";
+package awesome.awesome;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "awesome/awesome/params.proto";
+
+option go_package = "awesome/x/awesome/types";
+
+// GenesisState defines the awesome module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
